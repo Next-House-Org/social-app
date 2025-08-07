@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  feed-generator:
+    build: .
+    image: docker.nexthouse.org/knockthedoor/bluesky-feed-generator:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - FEEDGEN_HOSTNAME=your.domain.com
+      # Optional DID override
+      # - FEEDGEN_SERVICE_DID=did:web:your.domain.com
+    #volumes:
+    #  - ./data:/app/data  # for SQLite or file persistence
+    restart: unless-stopped
+

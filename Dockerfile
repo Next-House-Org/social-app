@@ -111,3 +111,6 @@ LABEL org.opencontainers.image.description="bsky.app Web App"
 LABEL org.opencontainers.image.licenses=MIT
 
 # NOOP
+
+# inside Dockerfile
+EXPOSE 8100

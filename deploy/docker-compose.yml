@@ -3,8 +3,10 @@ version: "3.8"
 services:
   social-app:
     image: docker.nexthouse.org/knockthedoor/social-app:latest
+    container_name: social-app
+    restart: unless-stopped
     ports:
       - "8100:8100"
     environment:
-      - FEEDGEN_HOSTNAME=your.domain.com
-      # Optional DID override
+      FEEDGEN_HOSTNAME: social.nexthouse.org
+    command: ["bskyweb", "serve", "--http-address", ":8100"]

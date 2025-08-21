@@ -10,3 +10,10 @@ services:
     environment:
       FEEDGEN_HOSTNAME: social.nexthouse.org
     command: ["bskyweb", "serve", "--http-address", ":8100"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8100/xrpc/app.bsky.actor.getProfile?actor=bsky.app"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
